@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, ScrollView, View, Button } from "react-native";
 import { connect } from "react-redux";
 
-import { adicTodo, setTodoText } from "../actions";
+import { adicTodo, setTodoText, updateTodo } from "../actions";
 
 import Input from "./Input";
 
@@ -30,6 +30,14 @@ class TodoForm extends React.Component {
 	}
 
 	fn_apertou() {
+		const { editingtodo } = this.props;
+		if ( editingtodo.id ) {
+			this.props.dispatchUpdateTodo (editingtodo);
+		} else {
+			const { texto } = this.props.editingtodo;
+			this.props.dispatchAddTodo(texto);
+		}
+
 		// const { texto } = this.state;
 		// console.log("apertou");
 		/*DEVEMOS COLOCAR UM DISPATCH DE UMA ACTION - PARA SER ENVIADO ASSIM QUE CLICAR NO BOTAO - PRA ISSO PRECISAMOS ESTAR COM O NOSSO COMPONENTE BOTAO CONECTADO COM O REDUX
@@ -38,8 +46,9 @@ class TodoForm extends React.Component {
 
 		/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
 		// this.props.dispatchAddTodo(this.state.texto);
+		/*COLOCADO NO IF ACIMA
 		const { texto } = this.props.editingtodo;
-		this.props.dispatchAddTodo(texto);
+		this.props.dispatchAddTodo(texto);*/
 
 		/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
 		// this.setState({ texto: "" });
@@ -108,7 +117,8 @@ export default connect(
 	mapStateToProps,
 	{
 		dispatchAddTodo: adicTodo,
-		dispatchSetTodoText: setTodoText
+		dispatchSetTodoText: setTodoText,
+		dispatchUpdateTodo: updateTodo
 	}
 )(TodoForm);
 
