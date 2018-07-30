@@ -34,8 +34,16 @@ class TodoForm extends React.Component {
 		// console.log("apertou");
 		/*DEVEMOS COLOCAR UM DISPATCH DE UMA ACTION - PARA SER ENVIADO ASSIM QUE CLICAR NO BOTAO - PRA ISSO PRECISAMOS ESTAR COM O NOSSO COMPONENTE BOTAO CONECTADO COM O REDUX
 		import { connect } from "react-redux";*/
-		this.props.dispatchAddTodo(this.state.texto);
-		this.setState({ texto: "" });
+
+
+		/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
+		// this.props.dispatchAddTodo(this.state.texto);
+		const { texto } = this.props.editingtodo;
+		this.props.dispatchAddTodo(texto);
+
+		/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
+		// this.setState({ texto: "" });
+		// this.props.dispatchSetTodoText("");
 	}
 
 	render() {
