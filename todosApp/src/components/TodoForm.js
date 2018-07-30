@@ -38,8 +38,8 @@ class TodoForm extends React.Component {
 			<View style={estilo.formContainer}>
 				<View style={estilo.inputContainer}>
 					<Input 
-						onChangeText={ texto => this.fn_mudouTexto(texto) }
-						value={ texto }
+						textMudou={ texto => this.fn_mudouTexto(texto) }
+						valor={ texto }
 					/>
 				</View>
 				<View style={estilo.botaoContainer}>
