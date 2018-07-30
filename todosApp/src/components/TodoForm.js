@@ -2,26 +2,31 @@ import React from "react";
 import { StyleSheet, ScrollView, View, Button } from "react-native";
 import { connect } from "react-redux";
 
-import { adicTodo } from "../actions";
+import { adicTodo, setTodoText } from "../actions";
 
 import Input from "./Input";
 
 class TodoForm extends React.Component {
 	// VAMOS COLOCAR O STATE PARA GUARDAR O VALOR DO INPUT, DO QUE O USUARIO DIGITAR
-	constructor(props) {
+	
+	/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
+	/*constructor(props) {
 		super(props);
 
 		this.state = {
 			texto: ""
 		}
-	}
+	}*/
 
 	fn_mudouTexto(texto) {
 		console.log("mudou");
-		this.setState({
-			/*texto: texto*/
+		
+		/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
+		/*this.setState({
+			texto: texto
 			texto
-		});
+		});*/
+		this.props.dispatchSetTodoText(texto);
 	}
 
 	fn_apertou() {
@@ -34,7 +39,9 @@ class TodoForm extends React.Component {
 	}
 
 	render() {
-		const { texto } = this.state;
+		/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
+		/*const { texto } = this.state;*/
+		const { texto } = this.props.editingtodo;
 		return(
 			<View style={estilo.formContainer}>
 				<View style={estilo.inputContainer}>
@@ -83,7 +90,17 @@ const estilo = StyleSheet.create({
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);*/
 /*export default connect(null, mapDispatchToProps)(TodoForm);
 OU*/
-export default connect(null, {
-	dispatchAddTodo: adicTodo
-})(TodoForm);
+
+const mapStateToProps = state => {
+	return {
+		editingtodo: state.editingTodo
+	}
+}
+export default connect(
+	mapStateToProps,
+	{
+		dispatchAddTodo: adicTodo,
+		dispatchSetTodoText: setTodoText
+	}
+)(TodoForm);
 
