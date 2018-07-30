@@ -66,11 +66,11 @@ const estilo = StyleSheet.create({
 });
 
 // VAMOS PASSAR PARA O COMPONENTE UMA FUNÇÃO QUE VAI ADICIONAR UM TODO
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
 	return({
 		dispatchAddTodo: texto => dispatch(adicTodo(texto))
 	});
-}
+}*/
 
 // carrying
 /* PRECISAMOS PASSAR 2 FUNÇÕES PARA O CONNECT
@@ -80,5 +80,9 @@ const mapDispatchToProps = dispatch => {
 - mapDispatchToProps
 	- QDO QUEREMOS FAZER ALGUM DISPATCH
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);*/
-export default connect(null, mapDispatchToProps)(TodoForm);
+/*export default connect(null, mapDispatchToProps)(TodoForm);
+OU*/
+export default connect(null, {
+	dispatchAddTodo: adicTodo
+})(TodoForm);
 

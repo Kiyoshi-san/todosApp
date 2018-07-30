@@ -7,12 +7,14 @@ import { createStore } from "redux";
 
 import { Provider } from "react-redux";
 
-
+import devToolsEnhancer from "remote-redux-devtools";
 
 // import rootReducer from "./reducers";
 import rootReducer from "../reducers/index";
 
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
+// COMO USAREI A EXTENSAO DO CHROME ReduxDevTools, PASSAREI UM SEGUNDO PARAMETRO QUE É A FUNÇÃO DO "devToolsEnhancer"
+const store = createStore(rootReducer, devToolsEnhancer());
 
 export default class TodoApp extends React.Component {
 	render() {

@@ -1,5 +1,7 @@
 import { ADIC_TODO } from "../actions";
 
+let proximoId = 1;
+
 /* REDUCER - É UMA FUNÇÃO QUE RECEBE
 - ESTADO ATUAL (STATE)
 - ACTION
@@ -11,6 +13,7 @@ const todoListReducer = (estado = [], acao) => {
 			console.log("addTodo foi chamado!", acao.texto);
 			// ADICIONAR UM TODO
 			const novoTodo = {
+				id: proximoId++,
 				texto: acao.texto
 			}
 			/*UNE OS ELEMENTOS DE UM ARRAY EM OUTRO - CRIANDO UM NOVO ARRAY
