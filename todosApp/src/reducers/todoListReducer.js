@@ -1,4 +1,8 @@
-import { ADIC_TODO, TOGGLE_TODO } from "../actions";
+import { 
+	ADIC_TODO, 
+	TOGGLE_TODO,
+	UPDATE_TODO
+} from "../actions";
 
 let proximoId = 1;
 
@@ -22,8 +26,14 @@ const todoListReducer = (estado = [], acao) => {
 			var b = [5,6,7]
 			[...a, ...b] === [1,2,3,5,6,7]*/
 			return [...estado, novoTodo]
+		case UPDATE_TODO:
+			return estado.map(todo => {
+				if (todo.id === acao.todo.id) {
+					return acao.todo
+				}
+				return todo;
+			})
 		case TOGGLE_TODO:
-			acao.todoId
 			// VOU UTILIZAR O METODO "map", PQ EU SEI NAO VAI MUDAR O MEU ARRAY, VAI REALMENTE DEVOLVER UM OUTRO ARRAY
 			return estado.map(todo => {
 				if (todo.id === acao.todoId)
