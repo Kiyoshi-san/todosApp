@@ -1,10 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Button } from "react-native";
-import { connect } from "react-redux";
-
 import Input from "./Input";
 
-class TodoForm extends React.Component {
+export default class TodoForm extends React.Component {
 	// VAMOS COLOCAR O STATE PARA GUARDAR O VALOR DO INPUT, DO QUE O USUARIO DIGITAR
 	constructor(props) {
 		super(props);
@@ -23,9 +21,8 @@ class TodoForm extends React.Component {
 	}
 
 	fn_apertou() {
-		// const { texto } = this.state;
-		// console.log("apertou");
-		this.props.dispatchAddTodo(this.state.texto);
+		const { texto } = this.state;
+		console.log("apertou");
 	}
 
 	render() {
@@ -59,14 +56,4 @@ const estilo = StyleSheet.create({
 	botaoContainer:{
 		flex: 3,
 	},
-});
-
-// VAMOS PASSAR PARA O COMPONENTE UMA FUNÇÃO QUE VAI ADICIONAR UM TODO
-const mapDispatchToProps = dispatch => {
-
-}
-
-// carrying
-// export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
-export default connect(null, mapDispatchToProps)(TodoForm);
-
+})
