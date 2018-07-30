@@ -31,12 +31,23 @@ class TodoForm extends React.Component {
 
 	fn_apertou() {
 		const { editingtodo } = this.props;
-		if ( editingtodo.id ) {
+		/*if ( editingtodo.id ) {
 			this.props.dispatchUpdateTodo (editingtodo);
 		} else {
 			const { texto } = this.props.editingtodo;
 			this.props.dispatchAddTodo(texto);
+		}*/
+		if ( editingtodo.id ) {
+			return this.props.dispatchUpdateTodo (editingtodo);
 		}
+
+		const { texto } = this.props.editingtodo;
+		if ( texto !== "" ) {
+			return this.props.dispatchAddTodo(texto);			
+		}
+
+		alert("Por gentileza preencha um item");
+		
 
 		// const { texto } = this.state;
 		// console.log("apertou");
@@ -58,7 +69,7 @@ class TodoForm extends React.Component {
 	render() {
 		/*COM O STATE DO REDUX NAO PRECISA MAIS DESSE*/
 		/*const { texto } = this.state;*/
-		const { texto } = this.props.editingtodo;
+		const { texto, id } = this.props.editingtodo;
 		return(
 			<View style={estilo.formContainer}>
 				<View style={estilo.inputContainer}>
@@ -70,7 +81,7 @@ class TodoForm extends React.Component {
 				<View style={estilo.botaoContainer}>
 					<Button
 						onPress={() => this.fn_apertou()}
-						title="Adicionar"
+						title={ id ? "Modificar" : "Adicionar" }
 					/>
 				</View>
 			</View>

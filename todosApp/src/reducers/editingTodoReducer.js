@@ -1,4 +1,9 @@
-import { SET_TODO_TEXT, ADIC_TODO, EDITAR_TODO } from "../actions"
+import { 
+	SET_TODO_TEXT, 
+	ADIC_TODO, 
+	EDITAR_TODO,
+	UPDATE_TODO
+} from "../actions"
 
 const INITIAL_STATE = {
 	id: null,
@@ -15,6 +20,7 @@ const editingTodoReducer = (state = INITIAL_STATE, acao) => {
 				texto: acao.texto
 			};
 		case ADIC_TODO:
+		case UPDATE_TODO:
 			// vai limpara o PEACE OF STATE EDITING_TODO - LIMPANDO O CAMPO DO INPUT
 			return INITIAL_STATE;
 		case EDITAR_TODO:
