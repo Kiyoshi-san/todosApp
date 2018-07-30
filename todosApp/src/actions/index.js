@@ -6,7 +6,7 @@ export const ADIC_TODO = "ADIC_TODO";
 // ACTION CREATOR
 export const adicTodo = texto => {
 	return ({
-		tipo: ADIC_TODO,
+		type: ADIC_TODO,
 		texto 
 	});
 }
