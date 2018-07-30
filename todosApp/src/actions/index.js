@@ -19,8 +19,16 @@ export const toggleTodo = todoId => ({
 });
 
 
+/*CRIADO A ACTION PARA CONSEGUIRMOS TRANSFORMAR O COMPONENTE CONTROLADO COM STATE NO REACT PRA UM COMPONENTE CONTROLADO COM STATE NO REDUX - PRA PERMITIR O USUARIO EDITAR O TEXTO*/
 export const SET_TODO_TEXT = "SET_TODO_TEXT";
 export const setTodoText = texto => ({
 	type: SET_TODO_TEXT,
 	texto
-})
+});
+
+
+export const EDITAR_TODO = "EDITAR_TODO";
+export const editarTodo = todo => ({
+	type: EDITAR_TODO,
+	todo
+});

@@ -15,8 +15,11 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 }
 OU*/
 
-const TodoListItem = ({ todo, apertouTodo }) => (
-	<TouchableOpacity onPress={ apertouTodo }>
+const TodoListItem = ({ todo, apertouTodo, cliqueLongo }) => (
+	<TouchableOpacity 
+		onPress={ apertouTodo }
+		onLongPress={cliqueLongo}
+	>
 		<View style={estilo.line}>
 			<Text style={[
 				estilo.lineText,
