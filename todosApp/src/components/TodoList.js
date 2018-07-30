@@ -39,6 +39,10 @@ const mapStateToProps = state => {
 	return { todos };
 }
 
+/*
+- mapStateToProps - ESTA FAZENDO A CONEXAO COM A STORE
+- dispatchToggleTodo - ESTA ENVIANDO A ACTION
+*/
 export default connect(
 	mapStateToProps,
 	{ dispatchToggleTodo: toggleTodo }

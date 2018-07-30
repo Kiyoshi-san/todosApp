@@ -18,7 +18,10 @@ OU*/
 const TodoListItem = ({ todo, apertouTodo }) => (
 	<TouchableOpacity onPress={ apertouTodo }>
 		<View style={estilo.line}>
-			<Text style={estilo.lineText}>
+			<Text style={[
+				estilo.lineText,
+				todo.done ? estilo.lineThrough : null
+			]}>
 				{ todo.texto }
 			</Text>
 		</View>
@@ -40,6 +43,9 @@ const estilo = StyleSheet.create({
 		paddingLeft: 15,
 		flex: 7,
 	},
+	lineThrough: {
+		textDecorationLine: "line-through"
+	}
 });
 
 export default TodoListItem;

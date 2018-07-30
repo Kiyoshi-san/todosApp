@@ -17,3 +17,10 @@ export const toggleTodo = todoId => ({
 	type: TOGGLE_TODO,
 	todoId
 });
+
+
+export const SET_TODO_TEXT = "SET_TODO_TEXT";
+export const setTodoText = texto => ({
+	type: SET_TODO_TEXT,
+	texto
+})
