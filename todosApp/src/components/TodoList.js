@@ -3,17 +3,27 @@ import { StyleSheet, View, Text } from "react-native";
 
 import { connect } from "react-redux";
 
+import TodoListItem from "./TodoListItem";
 
-/*const TodoList = ({todosArray = []}) => (
+import { toggleTodo } from "../actions";
+
+/*const TodoList = ({ todos, dispatchToggleTodo }) => (
 	<View>
-		{todosArray.map(todo => <Text key={todo.id}>{todo.texto}</Text>)}
+		{todos.map(todo => <Text key={todo.id}>{todo.texto}</Text>)}
 	</View>
 );*/
 
-const TodoList = ({ todos = [] }) => {
+const TodoList = ({ todos, dispatchToggleTodo }) => {
 	return(
 		<View>
-			{ todos.map(todo => <Text key={ todo.id }>{ todo.texto }</Text>) }
+			{/* todos.map(todo => <Text key={ todo.id }>{ todo.texto }</Text>) */}
+			{ todos.map(todo => (
+				<TodoListItem 
+					key={ todo.id }
+					todo={todo}
+					apertouTodo={() => dispatchToggleTodo(todo.id)}
+				/>
+			))}
 		</View>
 	);
 };
@@ -29,4 +39,7 @@ const mapStateToProps = state => {
 	return { todos };
 }
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(
+	mapStateToProps,
+	{ dispatchToggleTodo: toggleTodo }
+)(TodoList);

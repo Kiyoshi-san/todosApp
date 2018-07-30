@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Button } from "react-native";
+import { StyleSheet, ScrollView, View, Button } from "react-native";
 import { connect } from "react-redux";
 
 import { adicTodo } from "../actions";
@@ -30,6 +30,7 @@ class TodoForm extends React.Component {
 		/*DEVEMOS COLOCAR UM DISPATCH DE UMA ACTION - PARA SER ENVIADO ASSIM QUE CLICAR NO BOTAO - PRA ISSO PRECISAMOS ESTAR COM O NOSSO COMPONENTE BOTAO CONECTADO COM O REDUX
 		import { connect } from "react-redux";*/
 		this.props.dispatchAddTodo(this.state.texto);
+		this.setState({ texto: "" });
 	}
 
 	render() {

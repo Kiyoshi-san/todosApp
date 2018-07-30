@@ -10,3 +10,10 @@ export const adicTodo = texto => {
 		texto 
 	});
 }
+
+
+export const TOGGLE_TODO = "TOGGLE_TODO";
+export const toggleTodo = todoId => ({
+	type: TOGGLE_TODO,
+	todoId
+});

@@ -4,7 +4,8 @@ import { StyleSheet, TextInput } from "react-native";
 
 // FUNCTIONAL COMPONENTS COM E SEM CORPO
 // FUNCTIONAL COMPONENT COM CORPO
-/*const Input = ({ textMudou, valor }) => {
+const Input = (props) => {
+	const { textMudou, valor } = props;
 	return (
 		<TextInput
 			style={estilo.input}
@@ -12,17 +13,17 @@ import { StyleSheet, TextInput } from "react-native";
 			value={valor}
 		/>
 	)
-};*/
-
+};
 
 // FUNCTIONAL COMPONENT SEM CORPO - PRA NAO TER QUE COLOCAR UM CORPO NA ARROW FUNCTION, FZ UM DESTRUCT ONDE ENVIA A PROPS - PQ
-const Input = ({ textMudou, valor }) => (
-	<TextInput
-		style={estilo.input}
-		onChangeText={textMudou}
-		value={valor}
-	/>
-);
+// const Input = ({ textMudou, valor }) => (
+// 	<TextInput
+// 		style={estilo.input}
+// 		onChangeText={textMudou}
+// 		value={valor}
+// 	/>
+// );
+
 
 const estilo = StyleSheet.create({
 	input: {
