@@ -1,13 +1,14 @@
-import { adicTodo } FROM "../actions";
+import { ADIC_TODO } from "../actions";
 
 /* REDUCER - É UMA FUNÇÃO QUE RECEBE
 - ESTADO ATUAL (STATE)
 - ACTION
 E DEVE DEVOLVER UM ESTADO (RETORNAR UM STATE)*/
 
-const todoListReducer = (estado = [], adicTodo) => {
-	switch(adicTodo.tipo){
+const todoListReducer = (estado = [], acao) => {
+	switch(acao.type){
 		case ADIC_TODO:
+			console.log("addTodo foi chamado!", acao.texto);
 			// ADICIONAR UM TODO
 			const novoTodo = {
 				texto: acao.texto
